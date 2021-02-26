@@ -157,7 +157,7 @@ func (s *Server) validateIPAddress(ipAddress string) (msg string, ok bool) {
 		return
 	}
 	if port != PsmeDefaultPortNumber {
-		logrus.Errorf("Port number is %s, it should be %d/%d/%d", port, PsmeDefaultPortNumber)
+		//logrus.Errorf("Port number is %s, it should be %d/%d/%d", port, PsmeDefaultPortNumber)
 		msg = "Port number " + port + " should be " + PsmeDefaultPortNumber
 		return
 	}

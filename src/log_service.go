@@ -65,9 +65,11 @@ func (s *Server) changeDeviceLogService(deviceIPAddress string, token string, st
 		logrus.Errorf("The log service state has in the " + strconv.FormatBool(state) + " from device " + deviceIPAddress)
 		return http.StatusBadRequest, errors.New("The log service state has in the " + strconv.FormatBool(state) + " from device " + deviceIPAddress)
 	}
+/*
 	ServiceInfo := map[string]interface{}{}
 	ServiceInfo["ServiceEnabled"] = state
 	_, _, _, statusCode = patchHTTPDataByRfAPI(deviceIPAddress, RfLogService, token, ServiceInfo)
+*/
 	if statusCode != http.StatusNoContent {
 		logrus.Errorf("Failed to set log service state to device %s, status code %d", deviceIPAddress, statusCode)
 		return statusCode, errors.New("Failed to set log service state to device " + deviceIPAddress)
@@ -85,14 +87,14 @@ func (s *Server) resetDeviceLogData(deviceIPAddress string, token string) (statu
 		logrus.Errorf("The user account %s does not login to this device %s", userName, deviceIPAddress)
 		return http.StatusBadRequest, errors.New("The user account " + userName + " does not login to this deivce")
 	}
+/*
 	userPrivilege := s.getUserPrivilege(deviceIPAddress, token, userName)
-	if userPrivilege != UserPrivileges[0] && userPrivilege != UserPrivileges[1] {
-		logrus.Errorf("The user %s privilege could not change Log sevice state from this device %s", deviceIPAddress)
 		return http.StatusBadRequest, errors.New("The user privilege could not change state from  this device")
 	}
 	ServiceInfo := map[string]interface{}{}
 	ServiceInfo[""] = ""
 	_, _, _, statusCode = postHTTPDataByRfAPI(deviceIPAddress, RfLogService+"Actions/LogService.Reset", token, ServiceInfo)
+*/
 	if statusCode != http.StatusOK {
 		logrus.Errorf("Failed to reset log data to device %s, status code %d", deviceIPAddress, statusCode)
 		return statusCode, errors.New("Failed to reset log data to device " + deviceIPAddress)
