@@ -1,4 +1,4 @@
-module github.com/abrother94/device-manager
+module github.com/abrother94/devicemanager
 
 go 1.13
 
