@@ -27,7 +27,7 @@ import (
 	"sync"
 	"time"
 
-	importer "github.com/abrother94/device-manager/proto"
+	importer "github.com/abrother94/devicemanager/proto"
 	"github.com/Shopify/sarama"
 	empty "github.com/golang/protobuf/ptypes/empty"
 
